@@ -64,20 +64,7 @@ class DialogueBox extends FlxSpriteGroup
 	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
 	
-	var blackListed:Array<String> = ['my-battle', 'last-chance', 'genocide'];
-
-	var extraCharnames:Array<String> = [
-	'bf-left',
-	'bf-exp',
-	'bf-right',
-	'gf',
-	'gf-talking',
-	'gf-hmm',
-	'gf-letsgo',
-	'tabi',
-	'tabi-mad',
-	'tabi-worried'
-	];
+	var blackListed:Array<String> = ['Where-are-you', 'Eruption', 'Kaio-ken', 'Whats-new', 'Blast', 'Super-saiyan', 'GOD-EATER', 'Soothing-power', 'Thunderstorm', 'Dissasembler', 'Astral-calamity', 'Talladega'];
 
 	var extraRights:Array<Bool> = [];
 
@@ -144,9 +131,9 @@ class DialogueBox extends FlxSpriteGroup
 				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
 				face.setGraphicSize(Std.int(face.width * 6));
 				add(face);
-			case 'my-battle' | 'last-chance' | 'genocide':
+			case 'Where-are-you' | 'Eruption', 'Kaio-ken' | 'Whats-new' | 'Blast' | 'Super-saiyan' | 'GOD-EATER' | 'Soothing-power' | 'Thunderstorm' | 'Dissasembler' | 'Astral-calamity' | 'Talladega':
 				hasDialog = toLowerCase()
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-evil');
+				box = new FlxSprite('TextBox');
 
 		}
 
@@ -207,7 +194,7 @@ class DialogueBox extends FlxSpriteGroup
 			{
 				isRight = true;
 			}
-			var prefix:String = "tabi/dialogue/Dialog icons/";
+			var prefix:String = "face/";
 			//var shitList:Array<String> = [];
 			var newSprite:FlxSprite = new FlxSprite(box.x, box.y + 100).loadGraphic(Paths.image(prefix + extraCharnames[i]));
 			newSprite.y -= newSprite.height;
